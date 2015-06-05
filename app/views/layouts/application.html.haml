@@ -1,0 +1,19 @@
+!!!
+%html{:lang => "en"}
+  %head
+    / Uncomment to make IE8 render like IE7
+    / <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    / Set the viewport width to device width for mobile
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport", :charset => "utf-8"}
+    %title= content_for?(:title) ? content_for(:title) : "Click to Change"
+
+    / = javascript_include_tag "application"
+    = stylesheet_link_tag "application"  unless Rails.env == 'test'
+    = csrf_meta_tags
+
+  %body{class: page_class}
+    =yield
+
+  -if Rails.env.development?
+    #debug
+    =params.inspect

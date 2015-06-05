@@ -1,0 +1,17 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: unicode
+  user: jrae
+  password:
+  pool: 5
+
+development:
+  <<: *defaults
+  database: click2change_dev
+
+test: &TEST
+  <<: *defaults
+  database: click2change_test
+
+cucumber:
+  <<: *TEST
