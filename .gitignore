@@ -18,7 +18,9 @@ config/database.yml
 .ruby-gemset
 .powrc
 .rvmrc
+.env
 coverage/
+bin/
 
 # Ignore tags files
 /tags

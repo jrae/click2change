@@ -21,6 +21,7 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'byebug'
   gem 'highline'
+  gem 'dotenv-rails'
 end
 
 group :test do
@@ -28,6 +29,7 @@ group :test do
   gem 'spring'
   gem 'rspec-rails'
   gem 'cucumber'
+  gem 'cucumber-rails'
   gem "capybara"
   gem 'poltergeist'
   gem 'email_spec'
@@ -35,5 +37,4 @@ group :test do
   gem 'webmock'
   gem 'vcr'
   gem 'simplecov', :require => false
-  gem 'cucumber-rails', :require => false
 end
