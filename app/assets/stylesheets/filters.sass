@@ -1,0 +1,52 @@
+.filter_tile
+  text-align: center
+  width: 100%
+  display: block
+  a.showhide
+    display: block
+    width: 100%
+    +media($medium-screen)
+      display: none
+  +media($medium-screen)
+    width: 228px
+
+.apply_filters
+  clear: both
+  input[type="submit"]
+    width: 100%
+    font-size: em(18,18)
+  a
+    display: block
+    width: 100%
+    text-align: center
+    font-size: em(16,18)
+    font-weight: 400
+    text-decoration: underline
+    float: right
+    margin: 1em 0
+    &:hover
+      cursor: pointer
+    +media($medium-screen)
+      display: none
+
+#filter_panel
+  display: none
+  label
+    font-size: em(13,18)
+  h4
+    font-size: em(16,18)
+    text-align: left
+    font-weight: 700
+    margin: 0.5em 0 0.5em 0
+    line-height: 1.4
+  +media($small-screen)
+    padding: 1em
+  +media($medium-screen)
+    width: 228px
+    display: block
+
+.filter_section
+  max-width: 300px
+  margin-left: auto
+  margin-right: auto
+

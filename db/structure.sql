@@ -38,10 +38,9 @@ CREATE TABLE raw_emails (
     contains_petition boolean,
     body text,
     subject character varying(255),
-    body_content_type character varying(255),
     gmail_message_id character varying(255),
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    sent_by character varying(255),
+    sent_at timestamp without time zone
 );
 
 

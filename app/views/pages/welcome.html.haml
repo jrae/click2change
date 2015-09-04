@@ -1,1 +1,6 @@
-Click it ya!!
+%h1 Click 2 Change!
+#content
+  %section.sidebar
+    = render partial: 'filter_panel'
+  %section.emails
+    %ul= render partial: 'email', collection: @emails
