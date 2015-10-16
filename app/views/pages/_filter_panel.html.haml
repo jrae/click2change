@@ -12,11 +12,12 @@
             = c.label
             = c.check_box
 
-        %h4 Show emails that are...
-        = label_tag 'emails_filter[petitions_filter]', "Petitions only?"
-        = check_box_tag 'emails_filter[petitions_filter]', 'yes', nil
+        / %h4 Show emails that are...
+        / = label_tag 'emails_filter[petitions_filter]', "Petitions only?"
+        / = check_box_tag 'emails_filter[petitions_filter]', 'yes', nil
 
-      = submit_tag "Refresh", class: "small button"
+      = submit_tag "Refresh"
+      = link_to "Clear"
 
 .apply_filters
   %a.showhide

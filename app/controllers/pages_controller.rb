@@ -1,14 +1,11 @@
 class PagesController < ApplicationController
   def welcome
-    if emails_filter_params[:petitions_filter] == 'yes'
-      @emails = RawEmail.petitions
-    else
-      @emails = RawEmail.all
-    end
+    @emails_filter = EmailsFilter.new(emails_filter_params)
+    @emails = @emails_filter.results
   end
 
   def emails_filter_params
     return {} unless params[:emails_filter]
-    params.require(:emails_filter).permit(:organisations, :petitions_filter)
+    params.require(:emails_filter).permit(:petitions_filter, organisations: [])
   end
 end
