@@ -2,5 +2,5 @@
 #content
   %section.sidebar
     = render partial: 'filter_panel'
-  %section.emails
+  %section{data_url: :emails, class: 'emails'}
     %ul= render partial: 'email', collection: @emails
