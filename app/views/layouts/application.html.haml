@@ -1,5 +1,5 @@
 !!!
-%html{:lang => "en"}
+%html{:lang => "en", 'ng-app' => 'click2change'}
   %head
     / Uncomment to make IE8 render like IE7
     / <meta http-equiv="X-UA-Compatible" content="IE=7" />
@@ -11,8 +11,9 @@
     = stylesheet_link_tag "application"  unless Rails.env == 'test'
     = csrf_meta_tags
 
-  %body{class: page_class}
-    =yield
+  %body
+    %div{"ng-view" => ""}
+      =yield
 
   -if Rails.env.development?
     #debug

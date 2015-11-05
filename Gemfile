@@ -21,7 +21,9 @@ gem 'iconv'
 gem 'whenever'
 gem 'gmail'
 gem 'haml-rails'
-gem 'jquery-rails'
+gem 'jbuilder'
+gem 'angularjs-rails'
+gem 'rails-api'
 
 group :development, :test do
   gem 'byebug'

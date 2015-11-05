@@ -1,12 +1,17 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+require "active_model/railtie"
+require "active_record/railtie"
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "action_view/railtie"
+require "sprockets/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Click2change
+module Click2Change
 
   def self.config
     Application.config
@@ -25,7 +30,11 @@ module Click2change
 
     # config.assets.precompile += []
 
+    config.assets.enabled = true
+
     config.i18n.enforce_available_locales = true
+
+    config.assets.paths << Rails.root.join("app", "assets", "templates")
 
   end
 end

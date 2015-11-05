@@ -1,0 +1,10 @@
+<view title="emails">
+
+  <content has-header="true" has-subheader="true" has-tabs="true">
+    <list>
+      <div ng-repeat-start="email in emails"></div>
+        <div ng-include="'assets/emails/_email.html'"></div>
+      <div ng-repeat-end></div>
+    </list>
+  </content>
+</view>

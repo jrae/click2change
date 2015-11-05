@@ -1,0 +1,10 @@
+%h1 Click 2 Change!
+#content
+  %section.sidebar
+    = render partial: 'filter_panel'
+
+  %div{"ng-controller" => "EmailCtrl"}
+    %ul
+      %li{"ng-repeat" => "email in emails"}
+  / %section{data_url: :emails, class: 'emails'}
+  /   %ul= render partial: 'email', collection: @emails

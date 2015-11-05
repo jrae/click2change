@@ -1,6 +1,0 @@
-%h1 Click 2 Change!
-#content
-  %section.sidebar
-    = render partial: 'filter_panel'
-  %section{data_url: :emails, class: 'emails'}
-    %ul= render partial: 'email', collection: @emails

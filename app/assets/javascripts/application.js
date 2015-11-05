@@ -10,5 +10,17 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
+//= require angular
+//= require angular-animate
+//= require angular-route
+//= require angular-resource
+//= require angular-touch
+//= require angular-sanitize
+
+//= require click2change
+
+//= require services/emailService
+
+//= require controllers/homeCtrl
+//= require controllers/emailsCtrl
+//= require controllers/emailCtrl
