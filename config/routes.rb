@@ -5,10 +5,9 @@ Click2Change::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  resources :emails, only: [:index]
-
   scope '/api' do
     resources :emails, only: [:show, :index]
+    resources :organisations, only: [:show, :index]
   end
 
 end

@@ -20,7 +20,10 @@
 //= require click2change
 
 //= require services/emailService
+//= require services/organisationService
 
 //= require controllers/homeCtrl
-//= require controllers/emailsCtrl
 //= require controllers/emailCtrl
+//= require controllers/emailsCtrl
+//= require controllers/organisationCtrl
+//= require controllers/organisationsCtrl

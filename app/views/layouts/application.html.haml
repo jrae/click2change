@@ -14,7 +14,3 @@
   %body
     %div{"ng-view" => ""}
       =yield
-
-  -if Rails.env.development?
-    #debug
-    =params.inspect

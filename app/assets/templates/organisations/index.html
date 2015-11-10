@@ -1,0 +1,10 @@
+<view title="organisations">
+
+  <content has-header="true" has-subheader="true" has-tabs="true">
+    <list>
+      <div ng-repeat-start="organisation in organisations"></div>
+        <div ng-include="'assets/organisations/_organisation.html'"></div>
+      <div ng-repeat-end></div>
+    </list>
+  </content>
+</view>

@@ -1,9 +1,10 @@
 class EmailsFilter
 
-  attr_reader :organisations, :petitions_filter, :emails
+  attr_reader :emails
 
   def initialize(filter_params)
-    @organisations = (filter_params[:organisations] || []).delete_if(&:blank?)
+    debugger
+    @organisation_id = filter_params[:organisation_id]
     @emails = RawEmail.petitions
   end
 
@@ -13,8 +14,8 @@ class EmailsFilter
   end
 
   def filter_by_organisation
-    return if organisations.empty?
-    @emails = @emails.where(organisation_id: organisations).uniq
+    return if @organisation_id.blank?
+    @emails = @emails.where(organisation_id: @organisation_id).uniq
   end
 
 end
