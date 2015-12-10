@@ -30,6 +30,41 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: change_actions; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE change_actions (
+    id integer NOT NULL,
+    title character varying(255) NOT NULL,
+    external_link character varying(255),
+    email_links character varying(255)[] DEFAULT '{}'::character varying[],
+    external_id character varying(255),
+    organisation_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: change_actions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE change_actions_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: change_actions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE change_actions_id_seq OWNED BY change_actions.id;
+
+
+--
 -- Name: organisations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -64,13 +99,10 @@ ALTER SEQUENCE organisations_id_seq OWNED BY organisations.id;
 
 CREATE TABLE raw_emails (
     id integer NOT NULL,
-    contains_petition boolean,
-    body text,
-    subject character varying(255),
-    gmail_message_id character varying(255),
+    email_links text[] DEFAULT '{}'::text[],
     sent_by character varying(255),
     sent_at timestamp without time zone,
-    organisation_id integer
+    change_action_id integer
 );
 
 
@@ -106,6 +138,13 @@ CREATE TABLE schema_migrations (
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY change_actions ALTER COLUMN id SET DEFAULT nextval('change_actions_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY organisations ALTER COLUMN id SET DEFAULT nextval('organisations_id_seq'::regclass);
 
 
@@ -114,6 +153,14 @@ ALTER TABLE ONLY organisations ALTER COLUMN id SET DEFAULT nextval('organisation
 --
 
 ALTER TABLE ONLY raw_emails ALTER COLUMN id SET DEFAULT nextval('raw_emails_id_seq'::regclass);
+
+
+--
+-- Name: change_actions_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY change_actions
+    ADD CONSTRAINT change_actions_pkey PRIMARY KEY (id);
 
 
 --
@@ -148,4 +195,6 @@ SET search_path TO "$user",public;
 INSERT INTO schema_migrations (version) VALUES ('20150509153447');
 
 INSERT INTO schema_migrations (version) VALUES ('20151009154117');
+
+INSERT INTO schema_migrations (version) VALUES ('20151127195109');
 

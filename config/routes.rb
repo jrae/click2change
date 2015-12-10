@@ -6,7 +6,7 @@ Click2Change::Application.routes.draw do
   root 'home#index'
 
   scope '/api' do
-    resources :emails, only: [:show, :index]
+    resources :change_actions, only: [:show, :index]
     resources :organisations, only: [:show, :index]
   end
 

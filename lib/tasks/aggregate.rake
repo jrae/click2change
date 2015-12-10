@@ -1,5 +1,6 @@
 require 'highline/import'
-require "#{Rails.root}/lib/data/petition_aggregator"
+require 'httparty'
+require "#{Rails.root}/lib/data/email_aggregator"
 
 namespace :db do
   desc 'find petitions from emails'
@@ -25,10 +26,25 @@ namespace :db do
       }.each do |key, value|
         org = Organisation.find_or_create_by(name: key)
         # email = account.inbox.find(:from => from).first
-        account.inbox.find(:from => value).each do |email|
-          PetitionAggregator.new.create_raw_email_from(email, org)
+        account.inbox.find(:from => value, :after => Date.parse("2015-11-23")).each do |email|
+          EmailAggregator.new.create_change_action_from(email, org)
         end
       end
+    end
+  end
+
+  desc 'find petitions from emails'
+  task :scrape_gov_petitions => :environment do
+    org = Organisation.find_or_create_by(name: "UK Government and Parliment Petitions")
+    url  = "https://petition.parliament.uk/petitions.json?state=open"
+    response = HTTParty.get(url)
+    data = response.parsed_response['data']
+    data.each do |petition|
+      ChangeAction.find_or_create_by(external_id: petition['id'].to_s, title:  petition['attributes']['action']).tap do |change_action|
+        change_action.external_link =  petition['links']['self'].gsub('.json', '')
+        change_action.organisation_id =  org.id
+        #change_action.details =  petition['attributes']['background']
+      end.save
     end
   end
 end

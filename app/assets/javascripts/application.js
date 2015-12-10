@@ -19,11 +19,11 @@
 
 //= require click2change
 
-//= require services/emailService
+//= require services/changeActionService
 //= require services/organisationService
 
 //= require controllers/homeCtrl
-//= require controllers/emailCtrl
-//= require controllers/emailsCtrl
+//= require controllers/changeActionCtrl
+//= require controllers/changeActionsCtrl
 //= require controllers/organisationCtrl
 //= require controllers/organisationsCtrl

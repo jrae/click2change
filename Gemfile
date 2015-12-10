@@ -25,6 +25,9 @@ gem 'jbuilder'
 gem 'angularjs-rails'
 gem 'rails-api'
 
+gem 'whenever', :require => false
+gem 'httparty', :require => false
+
 group :development, :test do
   gem 'byebug'
   gem 'highline'

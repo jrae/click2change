@@ -1,8 +1,5 @@
 class RawEmail < ActiveRecord::Base
 
-  belongs_to :organisation
+  belongs_to :change_action
 
-  validates_uniqueness_of :gmail_message_id
-
-  scope :petitions, -> { where("body like '%Sign%'") }
 end
