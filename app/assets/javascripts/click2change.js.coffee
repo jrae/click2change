@@ -1,6 +1,7 @@
 @click2change = angular.module('click2change', [
     'ngResource',
     'ngRoute',
+    'ngSanitize',
     'changeActionService',
     'organisationService'
     ]);
@@ -15,10 +16,10 @@
     #   templateUrl: 'assets/change_actions/index.html',
     #   controller: 'changeActionsCtrl'
     # }).
-    # when('/change_actions/:id', {
-    #   templateUrl: 'assets/change_actions/show.html',
-    #   controller: 'emailCtrl'
-    # }).
+    when('/change_actions/:id', {
+      templateUrl: 'assets/change_actions/show.html',
+      controller: 'changeActionCtrl'
+    }).
     when('/organisations/:id', {
       templateUrl: 'assets/organisations/show.html',
       controller: 'organisationCtrl'

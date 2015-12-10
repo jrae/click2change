@@ -37,8 +37,9 @@ CREATE TABLE change_actions (
     id integer NOT NULL,
     title character varying(255) NOT NULL,
     external_link character varying(255),
-    email_links character varying(255)[] DEFAULT '{}'::character varying[],
     external_id character varying(255),
+    email_links text[] DEFAULT '{}'::text[],
+    start_date timestamp without time zone,
     organisation_id integer,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
@@ -94,38 +95,6 @@ ALTER SEQUENCE organisations_id_seq OWNED BY organisations.id;
 
 
 --
--- Name: raw_emails; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE raw_emails (
-    id integer NOT NULL,
-    email_links text[] DEFAULT '{}'::text[],
-    sent_by character varying(255),
-    sent_at timestamp without time zone,
-    change_action_id integer
-);
-
-
---
--- Name: raw_emails_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE raw_emails_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: raw_emails_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE raw_emails_id_seq OWNED BY raw_emails.id;
-
-
---
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -149,13 +118,6 @@ ALTER TABLE ONLY organisations ALTER COLUMN id SET DEFAULT nextval('organisation
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY raw_emails ALTER COLUMN id SET DEFAULT nextval('raw_emails_id_seq'::regclass);
-
-
---
 -- Name: change_actions_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -169,14 +131,6 @@ ALTER TABLE ONLY change_actions
 
 ALTER TABLE ONLY organisations
     ADD CONSTRAINT organisations_pkey PRIMARY KEY (id);
-
-
---
--- Name: raw_emails_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY raw_emails
-    ADD CONSTRAINT raw_emails_pkey PRIMARY KEY (id);
 
 
 --
@@ -195,6 +149,4 @@ SET search_path TO "$user",public;
 INSERT INTO schema_migrations (version) VALUES ('20150509153447');
 
 INSERT INTO schema_migrations (version) VALUES ('20151009154117');
-
-INSERT INTO schema_migrations (version) VALUES ('20151127195109');
 

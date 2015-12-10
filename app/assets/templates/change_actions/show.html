@@ -1,0 +1,11 @@
+<h2>
+  Links included in email regarding {{change_action.title}}
+</h2>
+
+<content has-header="true" has-subheader="true" has-tabs="true">
+  <list>
+    <div ng-repeat-start="email_link in change_action.email_links"></div>
+      <div ng-include="'assets/change_actions/_email_link.html'"></div>
+    <div ng-repeat-end></div>
+  </list>
+</content>

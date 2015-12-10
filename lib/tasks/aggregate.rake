@@ -43,6 +43,7 @@ namespace :db do
       ChangeAction.find_or_create_by(external_id: petition['id'].to_s, title:  petition['attributes']['action']).tap do |change_action|
         change_action.external_link =  petition['links']['self'].gsub('.json', '')
         change_action.organisation_id =  org.id
+        change_action.start_date = petition['attributes']['open_at']
         #change_action.details =  petition['attributes']['background']
       end.save
     end
