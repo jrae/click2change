@@ -1,4 +1,3 @@
-# require 'highline/import'
 require 'httparty'
 require "#{Rails.root}/lib/data/change_action_aggregator"
 
