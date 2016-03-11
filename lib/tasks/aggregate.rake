@@ -55,11 +55,12 @@ namespace :db do
         "Greenpeace" => '@greenpeace.org.uk',
         "Care2 petitions" => '@australia.care2.com',
         "Avaaz" => '@avaaz.org',
-        "350" => '@350.org'
+        "350" => '@350.org',
+        "Peta UK" => '@peta.org.uk'
       }.each do |key, value|
         org = Organisation.find_or_create_by(name: key)
         # email = account.inbox.find(:from => from).first
-        account.inbox.find(:from => value, :after => Date.parse("2015-11-23")).each do |email|
+        account.inbox.find(:from => value, :after => Date.parse("2014-11-23")).each do |email|
           aggregator.create_change_action_from(email, org)
         end
       end
