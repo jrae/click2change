@@ -38,7 +38,7 @@ CREATE TABLE change_actions (
     title character varying(255) NOT NULL,
     external_link character varying(255),
     external_id character varying(255),
-    email_links text[] DEFAULT '{}'::text[],
+    email_body text,
     start_date timestamp without time zone,
     organisation_id integer,
     created_at timestamp without time zone,

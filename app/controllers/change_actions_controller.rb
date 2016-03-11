@@ -1,7 +1,7 @@
 class ChangeActionsController < ActionController::API
 
   def index
-    @change_actions = ChangeAction.where(organisation_id: params[:organisation_id]).each {|ca|
+    @change_actions = ChangeAction.where(organisation_id: params[:organisation_id]).order(:start_date).each {|ca|
       ca.external_link ||= "#/change_actions/#{ca.id}"
     }
     render json: @change_actions
