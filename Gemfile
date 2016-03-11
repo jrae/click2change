@@ -26,6 +26,8 @@ gem 'rails-api'
 gem 'whenever', :require => false
 gem 'httparty', :require => false
 
+gem 'rack-timeout'
+
 group :development, :test do
   gem 'byebug'
   gem 'highline'
@@ -45,4 +47,9 @@ group :test do
   gem 'webmock'
   gem 'vcr'
   gem 'simplecov', :require => false
+end
+
+group :production do
+  gem 'puma'
+  gem 'rails_12factor'
 end
