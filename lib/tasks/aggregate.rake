@@ -24,7 +24,8 @@ namespace :db do
         "Care2 petitions" => '@australia.care2.com',
         "Avaaz" => '@avaaz.org',
         "350" => '@350.org',
-        "Peta UK" => '@peta.org.uk'
+        "Peta UK" => '@peta.org.uk',
+        "Humane Society International" => '@hsi.org'
       }.each do |key, value|
         org = Organisation.find_or_create_by(name: key)
         # email = account.inbox.find(:from => from).first
@@ -56,7 +57,8 @@ namespace :db do
         "Care2 petitions" => '@australia.care2.com',
         "Avaaz" => '@avaaz.org',
         "350" => '@350.org',
-        "Peta UK" => '@peta.org.uk'
+        "Peta UK" => '@peta.org.uk',
+        "Humane Society International" => '@hsi.org'
       }.each do |key, value|
         org = Organisation.find_or_create_by(name: key)
         # email = account.inbox.find(:from => from).first
