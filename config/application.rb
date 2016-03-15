@@ -36,5 +36,7 @@ module Click2Change
 
     config.assets.paths << Rails.root.join("app", "assets", "templates")
 
+    config.eager_load = true
+
   end
 end
