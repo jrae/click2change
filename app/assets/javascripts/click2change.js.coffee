@@ -26,7 +26,7 @@
       controller: 'organisationCtrl'
     }).
     otherwise({
-      templateUrl: '/assets/home.html',
+      templateUrl: '/assets/home/index.html',
       controller: 'homeCtrl'
     })
 ])
