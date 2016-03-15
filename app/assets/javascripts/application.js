@@ -17,6 +17,12 @@
 //= require angular-touch
 //= require angular-sanitize
 
+//= require underscore
+//= require ionic
+
+//= require angular-ui/angular-ui-router
+//= require ionic-angular
+
 //= require click2change
 
 //= require services/changeActionService
