@@ -22,7 +22,7 @@ gem 'iconv'
 gem 'gmail'
 gem 'haml-rails'
 gem 'jbuilder'
-gem 'angularjs-rails'
+gem 'angularjs-rails', '1.2.9'
 gem 'rails-api'
 
 gem 'whenever', :require => false
