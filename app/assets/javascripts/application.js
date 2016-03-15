@@ -18,7 +18,7 @@
 //= require angular-sanitize
 
 //= require angular-rails-templates
-//= require_tree ../templates
+//= require_tree .
 
 //= require underscore
 //= require ionic
