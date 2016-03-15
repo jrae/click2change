@@ -26,7 +26,7 @@ module Click2Change
     # like if you have constraints or database-specific column types
     config.active_record.schema_format = :sql
 
-    # config.assets.initialize_on_precompile = false
+    config.assets.initialize_on_precompile = false
 
     # config.assets.precompile += []
 
