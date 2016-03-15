@@ -3,7 +3,8 @@
     'ngRoute',
     'ngSanitize',
     'changeActionService',
-    'organisationService'
+    'organisationService',
+    'templates'
     ]);
 
 @click2change.config(['$routeProvider', ($routeProvider) ->
