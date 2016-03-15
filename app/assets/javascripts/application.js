@@ -17,6 +17,9 @@
 //= require angular-touch
 //= require angular-sanitize
 
+//= require angular-rails-templates
+//= require_tree ../templates
+
 //= require underscore
 //= require ionic
 

@@ -30,6 +30,8 @@ gem 'httparty', :require => false
 
 gem 'rack-timeout'
 
+gem 'angular-rails-templates'
+
 group :development, :test do
   gem 'byebug'
   gem 'highline'
