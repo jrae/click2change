@@ -11,7 +11,6 @@ class ChangeActionAggregator
         end.save
       end
     rescue Exception => e
-      debugger
       puts "failed to save petition"
     end
   end
@@ -26,7 +25,6 @@ class ChangeActionAggregator
       end
       action.save
     rescue Exception => e
-      debugger
       puts "failed to save id #{email.msg_id.to_s} subject #{email.subject}"
     end
   end

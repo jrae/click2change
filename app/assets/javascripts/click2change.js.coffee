@@ -9,7 +9,7 @@
 @click2change.config(['$routeProvider', ($routeProvider) ->
   $routeProvider.
     when('/organisations', {
-      templateUrl: 'assets/organisations/index.html',
+      templateUrl: '/assets/organisations/index.html',
       controller: 'organisationsCtrl'
     }).
     # when('/change_actions', {
@@ -17,15 +17,15 @@
     #   controller: 'changeActionsCtrl'
     # }).
     when('/change_actions/:id', {
-      templateUrl: 'assets/change_actions/show.html',
+      templateUrl: '/assets/change_actions/show.html',
       controller: 'changeActionCtrl'
     }).
     when('/organisations/:id', {
-      templateUrl: 'assets/organisations/show.html',
+      templateUrl: '/assets/organisations/show.html',
       controller: 'organisationCtrl'
     }).
     otherwise({
-      templateUrl: 'assets/home.html',
+      templateUrl: '/assets/home/index.html',
       controller: 'homeCtrl'
     })
 ])

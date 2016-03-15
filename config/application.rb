@@ -26,7 +26,7 @@ module Click2Change
     # like if you have constraints or database-specific column types
     config.active_record.schema_format = :sql
 
-    # config.assets.initialize_on_precompile = false
+    config.assets.initialize_on_precompile = false
 
     # config.assets.precompile += []
 
@@ -35,6 +35,8 @@ module Click2Change
     config.i18n.enforce_available_locales = true
 
     config.assets.paths << Rails.root.join("app", "assets", "templates")
+
+    config.eager_load = true
 
   end
 end

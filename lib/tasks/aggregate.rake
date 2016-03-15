@@ -1,6 +1,19 @@
 require 'httparty'
 require "#{Rails.root}/lib/data/change_action_aggregator"
 
+@organisations = {
+      "Sum of Us" => '@sumofus.org',
+      "Change.org" => '@change.org',
+      "38 degrees" => '@38degrees.org.uk',
+      "Stop the war" => '@stopwar.org.uk',
+      "Greenpeace" => '@greenpeace.org.uk',
+      "Care2 petitions" => '@australia.care2.com',
+      "Avaaz" => '@avaaz.org',
+      "350" => '@350.org',
+      "Peta UK" => '@peta.org.uk',
+      "Humane Society International" => '@hsi.org'
+}
+
 namespace :db do
 
   desc 'find petitions from emails'
@@ -15,18 +28,7 @@ namespace :db do
     aggregator = ChangeActionAggregator.new
 
     Gmail.connect!(email_addresss, password) do |account|
-      {
-        "Sum of Us" => '@sumofus.org',
-        "Change.org" => '@change.org',
-        "38 degrees" => '@38degrees.org.uk',
-        "Stop the war" => '@stopwar.org.uk',
-        "Greenpeace" => '@greenpeace.org.uk',
-        "Care2 petitions" => '@australia.care2.com',
-        "Avaaz" => '@avaaz.org',
-        "350" => '@350.org',
-        "Peta UK" => '@peta.org.uk',
-        "Humane Society International" => '@hsi.org'
-      }.each do |key, value|
+      @organisations.each do |key, value|
         org = Organisation.find_or_create_by(name: key)
         # email = account.inbox.find(:from => from).first
         account.inbox.find(:from => value, :after => (Time.now - 1.day)).each do |email|
@@ -48,18 +50,7 @@ namespace :db do
     aggregator = ChangeActionAggregator.new
 
     Gmail.connect!(email_addresss, password) do |account|
-      {
-        "Sum of Us" => '@sumofus.org',
-        "Change.org" => '@change.org',
-        "38 degrees" => '@38degrees.org.uk',
-        "Stop the war" => '@stopwar.org.uk',
-        "Greenpeace" => '@greenpeace.org.uk',
-        "Care2 petitions" => '@australia.care2.com',
-        "Avaaz" => '@avaaz.org',
-        "350" => '@350.org',
-        "Peta UK" => '@peta.org.uk',
-        "Humane Society International" => '@hsi.org'
-      }.each do |key, value|
+      @organisations.each do |key, value|
         org = Organisation.find_or_create_by(name: key)
         # email = account.inbox.find(:from => from).first
         account.inbox.find(:from => value, :after => Date.parse("2014-11-23")).each do |email|

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.14.2'
+gem 'rails', '4.2.6'
 
 ruby '2.2.4'
 
@@ -29,6 +29,8 @@ gem 'whenever', :require => false
 gem 'httparty', :require => false
 
 gem 'rack-timeout'
+gem "non-stupid-digest-assets"
+gem 'responders', '~> 2.0'
 
 group :development, :test do
   gem 'byebug'
