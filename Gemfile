@@ -20,7 +20,6 @@ gem 'gmail'
 gem 'haml-rails'
 gem 'jbuilder'
 gem 'angularjs-rails'
-gem 'rails-api'
 
 gem 'whenever', :require => false
 gem 'httparty', :require => false
