@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '~> 5.1'
 
-ruby '2.2.4'
+ruby '2.4.2'
 
 gem 'pg'
 # Use SCSS for stylesheets
@@ -14,10 +14,7 @@ gem 'coffee-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-gem 'bitters'
-gem 'bourbon'
-gem 'neat'
-gem 'iconv'
+gem 'geff', git: 'https://github.com/wearefuturegov/geff.git'
 
 gem 'gmail'
 gem 'haml-rails'
@@ -31,6 +28,8 @@ gem 'httparty', :require => false
 gem 'rack-timeout'
 gem "non-stupid-digest-assets"
 gem 'responders', '~> 2.0'
+
+gem 'bullet'
 
 group :development, :test do
   gem 'byebug'
